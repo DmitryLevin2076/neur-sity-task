@@ -4,10 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Погода</title>
 </head>
 <body>
 <input type="button" id="asyncBtn" value="Ping">
+<div class="container">
+    <div>
+        <span class="weather-title">Погода </span>
+        <span class="weather-title" id="name"></span>
+    </div>
+    <section id="today-results" class="content display">
+        <div class="weather-date"><span id="time"></span>, <span id="day"></span>, <span id="date"></span></div>
+        <div class="row">
+            <div class="column-left">
+                <div class="weather-temp"><span id="temp"></span>℃</div>
+                <div class="weather-temp-feels weather-result">Ощущается как <span id="feels-temp"></span>℃</div>
+            </div>
+            <div class="columnt-right">
+                <div class="weather-image" id="image-icon"></div>
+                <div class="weather-condition weather-result" id="condition"></div>
+            </div>
+        </div>
+        <div class="weather-result">Давление:  <span id="pressure"></span><span> мм рт. ст.</span></div>
+        <div class="weather-result">Ветер:  <span id="wind"></span><span> м/с</span></div>
+    </section>
+    <section id="week-results" class="content">
+        <table class="weather-table" id="weather-forecasts">
+            <thead>
+            <tr>
+                <th>Дата</th>
+                <th>День недели</th>
+                <th>Осадки</th>
+                <th>Температура</th>
+                <th>Давление</th>
+                <th>Ветер</th>
+            </tr>
+            <tbody></tbody>
+            </thead>
+        </table>
+    </section>
+</div>
 <script src="./renderer.js"></script>
 </body>
 </html>
