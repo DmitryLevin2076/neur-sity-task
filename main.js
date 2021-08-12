@@ -7,6 +7,7 @@ function createWindow () {
     height: 1200,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      child_process: path.join(__dirname, 'child_process.js'),
       nodeIntegration: true
     }
   })
@@ -44,4 +45,27 @@ fs.readdir(testFolder, (err, files) => {
   for (let file of files ) {
     console.log(file)
   }
+});
+
+
+/**
+ * 2 NodeJS: c
+ */
+
+const { exec } = require('child_process');
+
+exec("start cmd.exe", (error, stdout, stderr) => {
+  console.log('Hello')
+
+  if (error) {
+    console.log(`error: ${error.message}`);
+    return;
+  }
+
+  if (stderr) {
+    console.log(`stderr: ${stderr}`);
+    return;
+  }
+
+  console.log(`stdout:\n${stdout}`);
 });
